@@ -7,7 +7,7 @@ function __fish_eza_install --on-event fish-eza_install
 
     set -Ux __FISH_EZA_BINARY eza
 
-    set -Ux __FISH_EZA_BASE_ALIASES l ll lg le lc lo
+    set -Ux __FISH_EZA_BASE_ALIASES l ll lg le lt lc lo
     set -Ux __FISH_EZA_EXPANDED a d i id aa ad ai aid aad aai aaid
     set -Ux __FISH_EZA_EXPANDED_OPT_NAME LA LI LID LAA LAD LAI LAID LAAD LAAI LAAID
     set -Ux __FISH_EZA_OPT_NAMES
