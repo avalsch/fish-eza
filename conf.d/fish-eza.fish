@@ -14,7 +14,7 @@ function __fish_eza_install --on-event fish-eza_install
     set -Ux __FISH_EZA_ALIASES
     set -Ux __FISH_EZA_SORT_OPTIONS name .name size ext mod old acc cr inode
 
-    _set EZA_STANDARD_OPTIONS --group --header --group-directories-first
+    _set EZA_STANDARD_OPTIONS --header --group-directories-first
 
     # Base aliases
     _set EZA_L_OPTIONS
