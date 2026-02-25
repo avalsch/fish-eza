@@ -13,6 +13,7 @@ function __fish_eza_install --on-event fish-eza_install
     set -Ux __FISH_EZA_SORT_OPTIONS name .name size ext mod old acc cr inode
 
     _set EZA_STANDARD_OPTIONS --header --group-directories-first
+    set -a __FISH_EZA_OPT_NAMES EZA_STANDARD_OPTIONS
 
     # Base aliases
     _set EZA_L_OPTIONS
@@ -75,16 +76,23 @@ function __fish_eza_update --on-event fish-eza_update
 end
 
 function __fish_eza_uninstall --on-event fish-eza_uninstall
+    function _unset
+        set --universal --erase $argv[1] $argv[2..-1]
+    end
+
     for a in $__FISH_EZA_ALIASES
         functions --erase $a
         funcsave $a
     end
 
-    set --erase __FISH_EZA_BASE_ALIASES
-    set --erase __FISH_EZA_ALIASES
-    set --erase __FISH_EZA_EXPANDED
-    set --erase __FISH_EZA_EXPANDED_OPT_NAME
-    set --erase __FISH_EZA_OPT_NAMES
-    set --erase __FISH_EZA_SORT_OPTIONS
-    set --erase __FISH_EZA_BINARY
+    for n in $__FISH_EZA_OPT_NAMES
+        _unset $n
+    end
+
+    _unset __FISH_EZA_BASE_ALIASES
+    _unset __FISH_EZA_ALIASES
+    _unset __FISH_EZA_EXPANDED
+    _unset __FISH_EZA_EXPANDED_OPT_NAME
+    _unset __FISH_EZA_OPT_NAMES
+    _unset __FISH_EZA_SORT_OPTIONS
 end
